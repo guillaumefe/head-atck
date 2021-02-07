@@ -10,13 +10,16 @@ function uuidv4() {
   });
 }
 
+let file = __filename;
+let hdrs = {'X-Custom-Header': 'there is an opportunity'};
 
 app.head('/', (req,res) => {
     console.log('Head request received', uuidv4())
-    res.set('Content-Type', 'hello world')
-    res.setHeader('X-Powered-By', 'there is an opportunity here')
-    res.send(false) //any value needed
-    
+    res.sendFile(file, { headers: hdrs, lastModified: false, etag: false });
+})
+
+app.get('/', (req,res) => {
+    res.sendFile(__dirname + '/index.html')
 })
 
 app.listen(8000, () => {

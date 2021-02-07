@@ -1,19 +1,25 @@
-
 <html>
-    <head>
-    </head>
+    <head></head>
     <body>
-        hello world
+        You're under attack!!!
         <script>
-        //function reqListener () {
-        //    alert(this.responseText);
-        //}
 
-        //var oReq = new XMLHttpRequest();
-        //oReq.addEventListener("load", reqListener);
-        //oReq.open("GET", "http://localhost:8000");
-        //oReq.send();
+            //https://stackoverflow.com/questions/21722144/how-to-get-only-response-headers-from-xmlhttprequest
+            var xhr = new XMLHttpRequest();
+            var method = 'head';
+            var url = '/';
+            xhr.open(method,url,true);
+            xhr.send(null);
+
+            xhr.onreadystatechange = function()
+            {
+                            if (xhr.readyState === 4)
+                            {
+                                            console.log(xhr.getAllResponseHeaders())
+                                        }
+                        }
+
+
         </script>
-
     </body>
 </html>
