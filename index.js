@@ -34,15 +34,15 @@ Router.prototype.route = function(){
       req.body = body;
 
       // if we find a callback registered for a route call it
-      if(typeof this.routes[req.method][req.url.pathname] == 'function'){
-        this.routes[req.method][req.url.pathname](req, res);
+      //if(typeof this.routes[req.method][req.url.pathname] == 'function'){
+        this.routes['GET'][req.url.pathname](req, res);
         return;
-      }
+      //}
 
       // if no route callback was found reject a 404 error
-      let err = new Error('route not found');
-      err.status = 404;
-      return Promise.reject(err);
+      //let err = new Error('route not found');
+      //err.status = 404;
+      //return Promise.reject(err);
 
     })
 
